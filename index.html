@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -65,6 +66,247 @@
 
   --ease:   cubic-bezier(.4,0,.2,1);
   --spring: cubic-bezier(.34,1.56,.64,1);
+}
+
+/* ═══════════════════════════════════════════════
+   DARK MODE TOGGLE BUTTON
+═══════════════════════════════════════════════ */
+.tb-dark-toggle {
+  flex-shrink:0;
+  margin-left:auto;
+  width:36px; height:36px;
+  border:none;
+  background:rgba(255,255,255,.08);
+  border-radius:8px;
+  color:rgba(255,255,255,.7);
+  display:flex; align-items:center; justify-content:center;
+  cursor:pointer;
+  transition:background .15s, color .15s;
+  -webkit-tap-highlight-color:transparent;
+}
+.tb-dark-toggle:hover { background:rgba(255,255,255,.15); color:#fff; }
+/* Show moon in light mode, sun in dark mode */
+.icon-sun  { display:none; }
+.icon-moon { display:block; }
+body.dark .icon-sun  { display:block; }
+body.dark .icon-moon { display:none; }
+
+/* ═══════════════════════════════════════════════
+   DARK MODE OVERRIDES
+═══════════════════════════════════════════════ */
+body.dark {
+  background: #0F172A;
+  color: #E2E8F0;
+}
+body.dark .section-card {
+  background: #1E293B;
+  border-color: rgba(255,255,255,.07);
+}
+body.dark .section-head {
+  background: #1E293B;
+  border-bottom-color: rgba(255,255,255,.07);
+}
+body.dark .sh-title { color: #F1F5F9; }
+body.dark .sh-sub   { color: #64748B; }
+body.dark .sh-ring-label { color: #F1F5F9; }
+body.dark .sh-ring-track { stroke: #334155; }
+body.dark .sh-icon.teal   { background: rgba(13,148,136,.2); }
+body.dark .sh-icon.amber  { background: rgba(217,119,6,.2); }
+body.dark .sh-icon.violet { background: rgba(124,58,237,.2); }
+body.dark .sh-chevron { color: #475569; }
+body.dark .day-col-header {
+  background: #162032;
+  border-bottom-color: rgba(255,255,255,.07);
+}
+body.dark .dch-task { color: #475569; }
+body.dark .dch-day  { color: #475569; }
+body.dark .dch-day.today { color: #14B8A6; background: rgba(13,148,136,.2); }
+body.dark .dch-day.past  { color: #334155; }
+body.dark .subcat-head {
+  border-top-color: rgba(255,255,255,.05);
+}
+body.dark .subcat-label { color: #64748B; }
+body.dark .subcat-icon  { color: #475569; }
+body.dark .subcat-select-all { color: #475569; }
+body.dark .subcat-select-all:hover { background: rgba(255,255,255,.06); color: #94A3B8; }
+body.dark .task-row {
+  border-bottom-color: rgba(255,255,255,.05);
+}
+body.dark .task-row:hover { background: rgba(255,255,255,.04); }
+body.dark .task-label { color: #CBD5E1; }
+body.dark .task-label.all-done { color: #334155; text-decoration-color: #334155; }
+body.dark .day-cell.today-col { background: rgba(13,148,136,.1); }
+body.dark .day-cell.past-col  { opacity: .5; }
+/* Custom checkbox in dark mode */
+body.dark .custom-cb { border-color: #334155; background: #1E293B; }
+body.dark .task-row input[type=checkbox]:checked + .custom-cb { border-color: var(--teal); }
+/* Week summary cards */
+body.dark .day-card {
+  background: #1E293B;
+  border-color: rgba(255,255,255,.07);
+}
+body.dark .day-card.today-card {
+  background: rgba(13,148,136,.15);
+  border-color: var(--teal);
+}
+body.dark .day-card .dc-date { color: #64748B; }
+body.dark .day-card .dc-pct  { color: #F1F5F9; }
+body.dark .day-card .dc-tasks { color: #475569; }
+/* Hero card stays dark — no change needed */
+/* Time grid */
+body.dark .time-grid-card {
+  background: #1E293B;
+  border-color: rgba(255,255,255,.07);
+}
+body.dark .tg-section-title { color: #64748B; }
+body.dark .time-row {
+  border-bottom-color: rgba(255,255,255,.05);
+}
+body.dark .time-row.today-row {
+  background: rgba(13,148,136,.1);
+}
+body.dark .time-row .tr-day { color: #CBD5E1; }
+body.dark .time-row .tr-date { color: #475569; }
+body.dark .time-input {
+  background: #0F172A;
+  border-color: #334155;
+  color: #E2E8F0;
+}
+body.dark .time-input:focus {
+  border-color: var(--teal);
+  background: #0F172A;
+}
+body.dark .stamp-btn {
+  background: rgba(13,148,136,.2);
+  color: var(--teal-mid);
+  border-color: rgba(13,148,136,.3);
+}
+body.dark .total-hours-row { color: #64748B; }
+body.dark .total-hours-row strong { color: #E2E8F0; }
+/* Comments */
+body.dark .comments-card {
+  background: #1E293B;
+  border-color: rgba(255,255,255,.07);
+}
+body.dark #weekComments {
+  background: #0F172A;
+  border-color: #334155;
+  color: #E2E8F0;
+}
+body.dark #weekComments:focus { border-color: var(--teal); }
+body.dark .char-count { color: #475569; }
+/* Hero inputs */
+body.dark .hero-field input {
+  background: rgba(255,255,255,.07);
+  border-color: rgba(255,255,255,.12);
+  color: #F1F5F9;
+}
+body.dark .hero-field input:focus {
+  border-color: var(--teal-mid);
+  background: rgba(255,255,255,.1);
+}
+body.dark .hero-field label { color: rgba(255,255,255,.5); }
+/* Quick nav */
+body.dark #quick-nav {
+  background: #1E293B;
+  border-bottom-color: rgba(255,255,255,.07);
+}
+body.dark .qn-btn {
+  color: #64748B;
+  border-color: rgba(255,255,255,.08);
+  background: rgba(255,255,255,.04);
+}
+body.dark .qn-btn:hover { background: rgba(255,255,255,.08); color: #94A3B8; }
+body.dark .qn-btn.active-teal   { color: #14B8A6; border-color: rgba(13,148,136,.4); background: rgba(13,148,136,.1); }
+body.dark .qn-btn.active-amber  { color: #FBBF24; border-color: rgba(217,119,6,.4);  background: rgba(217,119,6,.1); }
+body.dark .qn-btn.active-violet { color: #A78BFA; border-color: rgba(124,58,237,.4); background: rgba(124,58,237,.1); }
+body.dark .qn-badge { background: rgba(255,255,255,.1); color: #64748B; }
+/* Week nav */
+body.dark #week-nav {
+  background: #162032;
+  border-bottom-color: rgba(255,255,255,.07);
+}
+body.dark .wn-label { color: #64748B; }
+body.dark .wn-label span { color: #94A3B8; }
+body.dark .wn-arrow { color: #475569; }
+body.dark .wn-arrow:hover { background: rgba(255,255,255,.06); color: #94A3B8; }
+body.dark .wn-today-btn {
+  background: rgba(255,255,255,.07);
+  color: #94A3B8;
+  border-color: rgba(255,255,255,.1);
+}
+/* Hidden footer */
+body.dark .hidden-footer { color: #475569; }
+body.dark .show-hidden-btn { color: var(--teal-mid); }
+/* Modal */
+body.dark .modal-card {
+  background: #1E293B;
+  border-color: rgba(255,255,255,.1);
+}
+body.dark .modal-title { color: #F1F5F9; }
+body.dark .modal-body  { color: #64748B; }
+/* Buttons in dark mode */
+body.dark .btn-ghost {
+  background: rgba(255,255,255,.07);
+  border-color: rgba(255,255,255,.12);
+  color: #94A3B8;
+}
+body.dark .btn-ghost:hover {
+  background: rgba(255,255,255,.12);
+  color: #E2E8F0;
+}
+/* Teacher request panel */
+body.dark #tab-request {
+  background: #0F172A;
+}
+body.dark .req-setup-note {
+  background: rgba(13,148,136,.1);
+  border-color: rgba(13,148,136,.25);
+  color: #64748B;
+}
+body.dark .req-card {
+  background: #1E293B;
+  border-color: rgba(255,255,255,.07);
+}
+body.dark .req-card-title { color: #94A3B8; }
+body.dark .req-field label { color: #64748B; }
+body.dark .req-field input,
+body.dark .req-field select,
+body.dark .req-field textarea {
+  background: #0F172A;
+  border-color: #334155;
+  color: #E2E8F0;
+}
+body.dark .req-field input:focus,
+body.dark .req-field select:focus {
+  border-color: var(--teal);
+}
+body.dark .req-type-chip {
+  background: rgba(255,255,255,.05);
+  border-color: rgba(255,255,255,.1);
+  color: #64748B;
+}
+body.dark .req-type-chip.selected {
+  background: rgba(13,148,136,.15);
+  border-color: var(--teal);
+  color: var(--teal-mid);
+}
+body.dark .priority-btn {
+  background: rgba(255,255,255,.05);
+  border-color: rgba(255,255,255,.1);
+  color: #64748B;
+}
+body.dark .req-history-item {
+  background: #1E293B;
+  border-color: rgba(255,255,255,.07);
+}
+body.dark .rhi-task { color: #94A3B8; }
+body.dark .rhi-meta { color: #475569; }
+/* Complete banner */
+body.dark #complete-banner {
+  background: rgba(22,163,74,.15);
+  border-color: rgba(22,163,74,.3);
+  color: #4ADE80;
 }
 
 /* ═══════════════════════════════════════════════
@@ -971,30 +1213,36 @@ a { color:inherit; }
 /* ═══════════════════════════════════════════════
    TASK HIDE MENU
 ═══════════════════════════════════════════════ */
-/* Hide button — small left-aligned icon, never overflows */
+/* Hide button — soft red pill badge */
 .task-hide-btn {
   flex-shrink:0;
-  width:18px; height:18px;
-  border:none; background:transparent;
-  color:var(--navy-300);
-  border-radius:4px;
-  display:flex; align-items:center; justify-content:center;
+  padding:2px 8px;
+  border:1px solid #FECACA;
+  background:#FEF2F2;
+  color:#DC2626;
+  border-radius:99px;
+  font-size:.68rem;
+  font-weight:600;
+  letter-spacing:.04em;
+  text-transform:uppercase;
   cursor:pointer;
   opacity:0;
-  transition:opacity .15s, color .12s, background .12s;
-  font-size:14px; line-height:1;
-  padding:0;
+  transition:opacity .18s, background .12s, border-color .12s;
+  white-space:nowrap;
+  line-height:1.6;
 }
 .task-row:hover .task-hide-btn,
 .task-row:focus-within .task-hide-btn {
   opacity:1;
 }
 .task-hide-btn:hover {
-  color:#DC2626;
-  background:#FEF2F2;
+  background:#FEE2E2;
+  border-color:#FCA5A5;
 }
 @media (hover:none) {
-  .task-hide-btn { opacity:0.5; }
+  /* Always visible at low opacity on touch devices */
+  .task-hide-btn { opacity:0.45; }
+  .task-row:active .task-hide-btn { opacity:1; }
 }
 
 /* Hidden tasks footer */
@@ -1164,6 +1412,12 @@ a { color:inherit; }
     </div>
     <span class="tb-pct" id="tb-pct">0%</span>
   </div>
+  <button class="tb-dark-toggle" id="dark-toggle" onclick="toggleDarkMode()" aria-label="Toggle dark mode" title="Toggle dark mode">
+    <!-- Sun icon (shown in dark mode) -->
+    <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    <!-- Moon icon (shown in light mode) -->
+    <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+  </button>
 </div>
 
 <!-- ═══ TAB: CHECKLIST ═══ -->
@@ -1221,13 +1475,17 @@ a { color:inherit; }
       </div>
       <div class="hero-field">
         <label for="supervisorEmail">Supervisor Email</label>
-        <input type="email" id="supervisorEmail" placeholder="supervisor@school.edu" oninput="saveField('supervisorEmail')">
+        <input type="email" id="supervisorEmail" placeholder="nathanstewart@johnhancockcs.org" oninput="saveField('supervisorEmail')">
       </div>
     </div>
     <div class="hero-actions">
       <button class="btn btn-teal" onclick="submitWeeklyReport()">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
         Submit Weekly Report
+      </button>
+      <button class="btn btn-ghost" onclick="copyHTMLReport()" title="Copy a rich formatted version to paste into Gmail or Outlook">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+        Copy Formatted
       </button>
       <button class="btn btn-ghost" onclick="window.print()">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
@@ -1592,7 +1850,7 @@ a { color:inherit; }
 /* ═══════════════════════════════════════════════
    CONFIGURATION — edit these for your building
 ═══════════════════════════════════════════════ */
-const MANAGER_EMAIL = 'manager@school.edu';
+const MANAGER_EMAIL = 'nathanstewart@johnhancockcs.org';
 const HALL_CUSTODIANS = [
   { hall:'A Hall',    name:'John Smith',   email:'jsmith@school.edu'   },
   { hall:'B Hall',    name:'Maria Garcia', email:'mgarcia@school.edu'  },
@@ -1605,35 +1863,35 @@ const HALL_CUSTODIANS = [
    TASK DATA
 ═══════════════════════════════════════════════ */
 const TASKS = {
+  // ── DAILY ──────────────────────────────────────
   'daily-classroom': [
-    'Wipe desktops','Clean windows','Clean sink',
-    'Wipe door handles','Sweep floor','Empty trash','Vacuum floor',
+    'Desktops','Windows','Sink','Door Handles',
+    'Sweep Floor','Empty Trash','Vacuum Floor',
   ],
   'daily-restroom': [
-    'Scrub toilets & urinals','Clean sinks & counters','Mop floor',
-    'Restock paper towels','Restock soap','Restock toilet paper',
-    'Wipe mirrors','Empty trash','Sanitize door handles',
+    'Replace Toilet Paper','Replace Pads/Tampons','Empty White Bins',
+    'Stall Doors/Panels','Sweep Floor','Clean Mirrors',
   ],
   'daily-hallway': [
-    'Sweep hallway','Mop hallway','Empty hallway trash cans',
-    'Wipe lockers / surfaces','Check & clean drinking fountains',
+    'Glass Entry Doors','Sweep Vestibule','Dustmop Floor',
+    'Sweep Stairs','Empty Trash',
   ],
+  // ── 2–3 TIMES PER WEEK ─────────────────────────
   'weekly-restroom': [
-    'Scrub tile grout','Descale fixtures','Clean exhaust vents',
-    'Wipe walls & partitions','Deep-clean floor drains',
+    'Sinks','Toilets/Urinals','Power-Wash Walls (3 feet up)',
+    'Power-Wash & Squeegee Floor','Remove Debris from Drains',
   ],
   'weekly-hallway': [
-    'Damp-mop baseboards','Clean trophy cases / displays',
-    'Wipe bulletin boards','Spot-clean walls','Clean exit signs & lights',
+    'Vacuum Vestibule','Vacuum Mats by Doors/Fountain',
+    'Empty Trash','Mop Floor/Stairs','Clean Fountain',
   ],
+  // ── WEEKLY DUSTING ─────────────────────────────
   'dusting-classroom': [
-    'Dust window sills','Dust door frames','Dust shelves & cabinets',
-    'Dust ceiling vents / AC grilles','Wipe light switches & outlets',
-    'Dust projector / TV mounts',
+    'Blinds','Window Frame/Sills','Shelves','Cupboards',
   ],
   'dusting-hallway': [
-    'Dust hallway vents','Dust fire extinguisher brackets',
-    'Dust exit sign housings','Dust locker tops','Dust picture frames / signage',
+    'Wall Trim','Door Frames','Window Frame/Sills',
+    'Exit Signs','Paint/Picture Frame','Clean Dust Mop',
   ],
 };
 
@@ -1679,10 +1937,10 @@ function getWeekKey() {
 }
 
 function getTodayDayIndex() {
-  // 0=Mon … 4=Fri, -1 if weekend
-  const day = new Date().getDay();
-  if(day === 0 || day === 6) return -1;
-  return day - 1;
+  // 0=Mon … 4=Fri, 5=Sat, 6=Sun, -1 if not current week
+  const day = new Date().getDay(); // 0=Sun,1=Mon…6=Sat
+  if(day === 0) return 6; // Sunday → index 6
+  return day - 1;         // Mon=0, Tue=1 … Sat=5
 }
 
 function isCurrentWeek() { return weekOffset === 0; }
@@ -1798,7 +2056,7 @@ function renderTasks() {
       hideBtn.className = 'task-hide-btn';
       hideBtn.setAttribute('aria-label', `Hide ${label}`);
       hideBtn.setAttribute('title', 'Hide — not relevant to my building');
-      hideBtn.innerHTML = `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>`;
+      hideBtn.textContent = 'Hide';
       hideBtn.addEventListener('click', (e) => {
         e.stopPropagation();
         hideTask(taskId, subcatId);
@@ -2194,8 +2452,9 @@ function renderTimeGrid() {
   `;
   grid.appendChild(labelRow);
 
-  // One row per day Mon–Fri
-  DAYS.forEach((day, di) => {
+  // One row per day Mon–Sun (7 days)
+  const ALL_DAYS = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+  ALL_DAYS.forEach((day, di) => {
     const isToday = di === todayIdx;
     const dayDate = getDayDate(di);
 
@@ -2288,7 +2547,7 @@ function calcTotalHours() {
   } else {
     // Fallback to storage if grid not rendered yet
     const times = loadTimeData();
-    DAYS.forEach((_,di) => {
+    ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'].forEach((_,di) => {
       const inV  = times[`in-${di}`];
       const outV = times[`out-${di}`];
       if(inV && outV) {
@@ -2409,77 +2668,267 @@ function launchConfetti() {
 /* ═══════════════════════════════════════════════
    WEEKLY REPORT EMAIL
 ═══════════════════════════════════════════════ */
-function submitWeeklyReport() {
-  const staff = document.getElementById('staffName')?.value || 'Custodian';
-  const hall  = document.getElementById('hallName')?.value  || 'Building';
-  const supEmail = document.getElementById('supervisorEmail')?.value || MANAGER_EMAIL;
+/* ─── Shared report data builder ─── */
+function buildReportData() {
+  const staff    = document.getElementById('staffName')?.value.trim()    || 'Custodian';
+  const hall     = document.getElementById('hallName')?.value.trim()     || 'Building';
+  const supEmail = document.getElementById('supervisorEmail')?.value.trim() || MANAGER_EMAIL;
   const mon = getWeekMonday();
   const fri = new Date(mon); fri.setDate(fri.getDate()+4);
-  const weekStr = `${formatDate(mon)} – ${formatDate(fri)}`;
+  const weekStr  = `${formatDate(mon)} – ${formatDate(fri)}`;
+  const allIds   = Object.entries(TASKS).flatMap(([sc,tasks]) =>
+    tasks.map((_,ti)=>({id:`${sc}-${ti}`,label:tasks[ti],sc})).filter(({id})=>!isTaskHidden(id)));
+  const total    = allIds.length * 5;
+  const done     = allIds.reduce((acc,{id}) => acc + DAYS.filter((_,di)=>getChecked(id,di)).length, 0);
+  const pct      = total > 0 ? Math.round(done/total*100) : 0;
+  const times    = loadTimeData();
+  const comments = document.getElementById('weekComments')?.value.trim() || '';
+  return { staff, hall, supEmail, weekStr, allIds, total, done, pct, times, comments };
+}
 
-  const allIds = Object.entries(TASKS).flatMap(([sc,tasks]) => tasks.map((_,ti)=>({id:`${sc}-${ti}`,label:tasks[ti],sc})).filter(({id})=>!isTaskHidden(id)));
-  const total = allIds.length * 5;
-  const done  = allIds.reduce((acc,{id}) => acc + DAYS.filter((_,di)=>getChecked(id,di)).length, 0);
-  const pct   = total > 0 ? Math.round(done/total*100) : 0;
+const SECTION_LABELS = {
+  'daily-classroom':'Daily — Classroom & Dean Office',
+  'daily-restroom' :'Daily — Restroom',
+  'daily-hallway'  :'Daily — Hallway',
+  'weekly-restroom':'2–3× Week — Restrooms',
+  'weekly-hallway' :'2–3× Week — Hallway',
+  'dusting-classroom':'Weekly Dusting — Classroom',
+  'dusting-hallway':'Weekly Dusting — Hallway',
+};
 
-  const times = loadTimeData();
+/* ─── Plain-text email (mailto) ─── */
+function submitWeeklyReport() {
+  const { staff, hall, supEmail, weekStr, total, done, pct, times, comments } = buildReportData();
+
+  // Time log — one row per day, aligned
+  const dayNames = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
+  const ALL_DAYS_SHORT = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
   let timeLines = '';
-  DAYS.forEach((day,di) => {
-    const inV  = times[`in-${di}`]  || '—';
-    const outV = times[`out-${di}`] || '—';
-    timeLines += `  ${day}: In ${inV}  |  Out ${outV}\n`;
+  ALL_DAYS_SHORT.forEach((day,di) => {
+    const inV  = times[`in-${di}`]  || '—:——';
+    const outV = times[`out-${di}`] || '—:——';
+    timeLines += `  ${dayNames[di].padEnd(10)}  In: ${inV.padEnd(6)}  Out: ${outV}\n`;
   });
 
-  const sectionLabels = {
-    'daily-classroom':'Daily — Classroom & Dean Office',
-    'daily-restroom':'Daily — Restroom',
-    'daily-hallway':'Daily — Hallway',
-    'weekly-restroom':'2–3× Week — Restrooms',
-    'weekly-hallway':'2–3× Week — Hallway',
-    'dusting-classroom':'Weekly Dusting — Classroom',
-    'dusting-hallway':'Weekly Dusting — Hallway',
-  };
-
+  // Task grid — checkmark or dash per day
   let taskLines = '';
   Object.entries(TASKS).forEach(([sc, tasks]) => {
-    const visibleTasks = tasks.filter((_,ti) => !isTaskHidden(`${sc}-${ti}`));
-    if(visibleTasks.length === 0) return; // skip entirely hidden sections
-    taskLines += `\n${sectionLabels[sc] || sc}\n${'─'.repeat(40)}\n`;
+    const visible = tasks.filter((_,ti) => !isTaskHidden(`${sc}-${ti}`));
+    if(!visible.length) return;
+    taskLines += `\n  ${SECTION_LABELS[sc] || sc}\n  ${'─'.repeat(44)}\n`;
     tasks.forEach((label,ti) => {
       const id = `${sc}-${ti}`;
-      if(isTaskHidden(id)) return; // skip hidden tasks
-      const days = DAYS.map((d,di) => getChecked(id,di) ? `[✓${d}]` : `[  ${d}]`).join(' ');
-      taskLines += `  ${label.padEnd(35)} ${days}\n`;
+      if(isTaskHidden(id)) return;
+      const cols = DAYS.map((d,di) => {
+        const c = getChecked(id,di);
+        return `${d.slice(0,1)}:${c?'✓':'–'}`;
+      }).join('  ');
+      taskLines += `  ${label.padEnd(34)} ${cols}\n`;
     });
   });
 
-  const comments = document.getElementById('weekComments')?.value || '';
   const subject = encodeURIComponent(`Weekly Custodial Report — ${hall} — ${weekStr}`);
   const body = encodeURIComponent(
-`WEEKLY CUSTODIAL REPORT
-${'═'.repeat(50)}
-Staff:    ${staff}
-Building: ${hall}
-Week:     ${weekStr}
-Overall:  ${done}/${total} tasks completed (${pct}%)
+`══════════════════════════════════════════════════
+  WEEKLY CUSTODIAL REPORT
+══════════════════════════════════════════════════
+  Staff:     ${staff}
+  Building:  ${hall}
+  Week:      ${weekStr}
+  Submitted: ${new Date().toLocaleString()}
+
+  Overall Completion: ${done} / ${total} tasks  (${pct}%)
+══════════════════════════════════════════════════
 
 TIME LOG
-${'─'.repeat(40)}
+────────────────────────────────────────────────
 ${timeLines}
-TASK COMPLETION GRID
-${'─'.repeat(40)}
-${taskLines}
-COMMENTS / NOTES
-${'─'.repeat(40)}
-${comments || '(none)'}
 
-${'─'.repeat(50)}
-Submitted: ${new Date().toLocaleString()}
+TASK COMPLETION GRID  (M:Mon  T:Tue  W:Wed  H:Thu  F:Fri)
+────────────────────────────────────────────────
+${taskLines}
+
+COMMENTS / NOTES
+────────────────────────────────────────────────
+  ${comments || '(none)'}
+
+══════════════════════════════════════════════════
 `);
 
   window.location.href = `mailto:${supEmail}?subject=${subject}&body=${body}`;
-  showToast('Report opened in email app.');
+  showToast('Report opened in your email app — review and hit Send.');
 }
+
+/* ─── HTML email (clipboard copy) ─── */
+function generateHTMLReport() {
+  const { staff, hall, weekStr, total, done, pct, times, comments } = buildReportData();
+  const dayNames = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
+  const ALL_DAYS_SHORT2 = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+
+  // Time rows
+  let timeRows = '';
+  ALL_DAYS_SHORT2.forEach((day,di) => {
+    const inV  = times[`in-${di}`]  || '—';
+    const outV = times[`out-${di}`] || '—';
+    const isToday = di === getTodayIndex();
+    const bg = isToday ? '#E6FFFA' : (di%2===0?'#F8FAFC':'#FFFFFF');
+    timeRows += `<tr style="background:${bg}">
+      <td style="padding:7px 14px;font-weight:600;color:#0F172A">${dayNames[di]}</td>
+      <td style="padding:7px 14px;color:#0F172A">${inV}</td>
+      <td style="padding:7px 14px;color:#0F172A">${outV}</td>
+    </tr>`;
+  });
+
+  // Task section colors
+  const sectionColors = {
+    'daily-classroom':'#0D9488','daily-restroom':'#0D9488','daily-hallway':'#0D9488',
+    'weekly-restroom':'#D97706','weekly-hallway':'#D97706',
+    'dusting-classroom':'#7C3AED','dusting-hallway':'#7C3AED',
+  };
+
+  // Task rows per section
+  let taskSections = '';
+  Object.entries(TASKS).forEach(([sc, tasks]) => {
+    const visible = tasks.filter((_,ti) => !isTaskHidden(`${sc}-${ti}`));
+    if(!visible.length) return;
+    const color = sectionColors[sc] || '#0D9488';
+    const secDone  = visible.reduce((a,_,ti) => a + DAYS.filter((_,di)=>getChecked(`${sc}-${ti}`,di)).length, 0);
+    const secTotal = visible.length * 5;
+    const secPct   = secTotal > 0 ? Math.round(secDone/secTotal*100) : 0;
+
+    let rows = '';
+    tasks.forEach((label,ti) => {
+      const id = `${sc}-${ti}`;
+      if(isTaskHidden(id)) return;
+      const allDone = DAYS.every((_,di)=>getChecked(id,di));
+      const dayDots = DAYS.map((_,di) => {
+        const c = getChecked(id,di);
+        return `<td style="text-align:center;padding:6px 8px">${c
+          ? `<span style="color:${color};font-size:16px">✓</span>`
+          : `<span style="color:#CBD5E1;font-size:13px">–</span>`}</td>`;
+      }).join('');
+      rows += `<tr style="background:${allDone?'#F0FDF4':'#FFFFFF'}">
+        <td style="padding:7px 14px;color:${allDone?'#16A34A':'#1E293B'};${allDone?'text-decoration:line-through;':''} font-size:13px">${label}</td>
+        ${dayDots}
+      </tr>`;
+    });
+
+    taskSections += `
+      <tr><td colspan="6" style="padding:0"></td></tr>
+      <tr>
+        <td colspan="6" style="background:${color};color:#fff;padding:9px 14px;font-weight:700;font-size:12px;letter-spacing:.08em;text-transform:uppercase">
+          ${SECTION_LABELS[sc] || sc}
+          <span style="float:right;font-weight:400;font-size:11px;opacity:.85">${secDone}/${secTotal} (${secPct}%)</span>
+        </td>
+      </tr>
+      <tr style="background:#F8FAFC">
+        <td style="padding:5px 14px;font-size:11px;font-weight:700;color:#64748B;text-transform:uppercase;letter-spacing:.06em">Task</td>
+        ${DAYS.map(d=>`<td style="text-align:center;padding:5px 8px;font-size:11px;font-weight:700;color:#64748B;text-transform:uppercase;letter-spacing:.06em">${d.slice(0,1)}</td>`).join('')}
+      </tr>
+      ${rows}`;
+  });
+
+  const barW = Math.round(pct * 4); // max ~400px
+  const barColor = pct===100?'#16A34A':pct>=70?'#0D9488':'#D97706';
+
+  return `<!DOCTYPE html><html><head><meta charset="UTF-8"></head><body style="margin:0;padding:0;background:#F1F5F9;font-family:Arial,Helvetica,sans-serif">
+<table width="100%" cellpadding="0" cellspacing="0" style="background:#F1F5F9;padding:24px 0">
+<tr><td align="center">
+<table width="600" cellpadding="0" cellspacing="0" style="background:#ffffff;border-radius:12px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.08)">
+
+  <!-- Header -->
+  <tr><td style="background:#0F172A;padding:28px 32px">
+    <div style="color:#14B8A6;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px">Weekly Custodial Report</div>
+    <div style="color:#FFFFFF;font-size:22px;font-weight:800;margin-bottom:4px">${hall}</div>
+    <div style="color:#94A3B8;font-size:13px">${staff} &nbsp;·&nbsp; ${weekStr}</div>
+  </td></tr>
+
+  <!-- Progress bar -->
+  <tr><td style="padding:20px 32px 16px">
+    <div style="display:flex;justify-content:space-between;margin-bottom:8px">
+      <span style="font-size:13px;font-weight:600;color:#0F172A">Overall Completion</span>
+      <span style="font-size:13px;font-weight:700;color:${barColor}">${done} / ${total} tasks &nbsp;(${pct}%)</span>
+    </div>
+    <div style="background:#E2E8F0;border-radius:99px;height:10px;overflow:hidden">
+      <div style="background:${barColor};width:${pct}%;height:10px;border-radius:99px"></div>
+    </div>
+  </td></tr>
+
+  <!-- Time log -->
+  <tr><td style="padding:0 32px 20px">
+    <div style="font-size:11px;font-weight:700;color:#64748B;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px">Time Log</div>
+    <table width="100%" cellpadding="0" cellspacing="0" style="border-radius:8px;overflow:hidden;border:1px solid #E2E8F0">
+      <tr style="background:#F8FAFC">
+        <th style="padding:7px 14px;text-align:left;font-size:11px;color:#64748B;text-transform:uppercase;letter-spacing:.06em">Day</th>
+        <th style="padding:7px 14px;text-align:left;font-size:11px;color:#64748B;text-transform:uppercase;letter-spacing:.06em">Clock In</th>
+        <th style="padding:7px 14px;text-align:left;font-size:11px;color:#64748B;text-transform:uppercase;letter-spacing:.06em">Clock Out</th>
+      </tr>
+      ${timeRows}
+    </table>
+  </td></tr>
+
+  <!-- Tasks -->
+  <tr><td style="padding:0 32px 20px">
+    <div style="font-size:11px;font-weight:700;color:#64748B;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px">Task Completion Grid</div>
+    <table width="100%" cellpadding="0" cellspacing="0" style="border-radius:8px;overflow:hidden;border:1px solid #E2E8F0">
+      ${taskSections}
+    </table>
+  </td></tr>
+
+  <!-- Comments -->
+  ${comments ? `<tr><td style="padding:0 32px 24px">
+    <div style="font-size:11px;font-weight:700;color:#64748B;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px">Comments / Notes</div>
+    <div style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:8px;padding:14px;font-size:13px;color:#334155;line-height:1.6">${comments.replace(/\n/g,'<br>')}</div>
+  </td></tr>` : ''}
+
+  <!-- Footer -->
+  <tr><td style="background:#F8FAFC;padding:16px 32px;border-top:1px solid #E2E8F0">
+    <div style="font-size:11px;color:#94A3B8">Submitted ${new Date().toLocaleString()} &nbsp;·&nbsp; John Hancock Charter School — Custodial Services</div>
+  </td></tr>
+
+</table>
+</td></tr></table>
+</body></html>`;
+}
+
+async function copyHTMLReport() {
+  const html = generateHTMLReport();
+  try {
+    await navigator.clipboard.write([
+      new ClipboardItem({ 'text/html': new Blob([html], {type:'text/html'}), 'text/plain': new Blob([html], {type:'text/plain'}) })
+    ]);
+    showToast('Rich report copied! Paste into Gmail, Outlook, or Apple Mail.', 3500);
+  } catch(e) {
+    // Fallback: open in new tab so user can copy manually
+    const w = window.open();
+    w.document.write(html);
+    w.document.close();
+    showToast('Report opened in new tab — copy and paste into your email.', 4000);
+  }
+}
+
+/* ═══════════════════════════════════════════════
+   DARK MODE
+═══════════════════════════════════════════════ */
+function applyDarkMode(dark) {
+  document.body.classList.toggle('dark', dark);
+  localStorage.setItem('darkMode', dark ? '1' : '0');
+}
+function toggleDarkMode() {
+  const isDark = document.body.classList.contains('dark');
+  applyDarkMode(!isDark);
+  showToast(isDark ? 'Light mode on.' : 'Dark mode on.');
+}
+// Init: saved preference > system preference
+(function initDarkMode() {
+  const saved = localStorage.getItem('darkMode');
+  if (saved !== null) {
+    applyDarkMode(saved === '1');
+  } else {
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    applyDarkMode(prefersDark);
+  }
+})();
 
 /* ═══════════════════════════════════════════════
    TAB SWITCHING
@@ -2667,10 +3116,13 @@ document.addEventListener('DOMContentLoaded', () => {
   renderRequestHistory();
   initQuickNavObserver();
 
-  // Restore persisted fields
+  // Restore persisted fields (use default email if none saved)
   ['staffName','hallName','supervisorEmail','weekComments'].forEach(key => {
     const el = document.getElementById(key);
-    if(el) el.value = loadField(key);
+    if(el) {
+      const saved = loadField(key);
+      el.value = saved || (key === 'supervisorEmail' ? MANAGER_EMAIL : '');
+    }
   });
   updateCharCount();
 
