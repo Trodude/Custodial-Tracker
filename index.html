@@ -101,15 +101,11 @@
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--border);
-    /* Safe-area padding for notched phones (status bar) */
-    padding: env(safe-area-inset-top, 0px) 16px 0;
-    display: flex; align-items: center; justify-content: space-between;
-    min-height: calc(64px + env(safe-area-inset-top, 0px));
-    gap: 10px;
-  }
-  /* Inner row sits below the safe area */
-  header > * {
-    margin-bottom: 0;
+    /* Push entire header below the phone status bar */
+    padding-top: 48px; /* solid fallback for non-CSS-env browsers */
+    padding-top: max(48px, env(safe-area-inset-top));
+    padding-left: 16px;
+    padding-right: 16px;
     padding-bottom: 0;
   }
   .header-inner {
